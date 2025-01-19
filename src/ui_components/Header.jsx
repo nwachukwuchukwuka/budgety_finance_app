@@ -2,7 +2,6 @@ import { IoMenuSharp } from "react-icons/io5";
 import { MdOutlineLightMode } from "react-icons/md";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { FaRegUser } from "react-icons/fa";
-import SearchBar from "./Searchbar";
 
 const Header = ({ setIsSidebarOpen }) => {
     return (
