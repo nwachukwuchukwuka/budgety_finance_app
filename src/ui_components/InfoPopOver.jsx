@@ -18,7 +18,7 @@ const InfoPopOver = () => {
                         size={28}
                     />
                 </PopoverTrigger>
-                <PopoverContent>Lorem ipsum dolor sit ame
+                <PopoverContent className="ml-8">Lorem ipsum dolor sit ame
                     t consectetur adipisicing elit
                     . Qui quisquam eaque quaerat, in quia et labore ad ipsum quos eum earum, similique delectus velit atque eos deserunt odio accusamus! Ea.</PopoverContent>
             </Popover>

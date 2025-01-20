@@ -41,7 +41,7 @@ const Header = ({ setIsSidebarOpen }) => {
                         className="text-gray-300 hover:text-blue-400 transition duration-300 cursor-pointer"
                     />
                     <FaRegUser
-                        size={23}
+                        size={20}
                         className="text-gray-300 hover:text-green-400 transition duration-300 cursor-pointer"
                     />
                 </div> 
