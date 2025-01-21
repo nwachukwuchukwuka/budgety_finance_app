@@ -1,16 +1,19 @@
-import { useState } from 'react'
 import { Link } from "react-router-dom";
 import { RxDashboard } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import { TbMoneybag } from "react-icons/tb";
 import logo from '../assets/logo.jpg'
+import React, { useContext } from "react";
+import AppContext from "@/services/AppContext";
 
-const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
+
+const Sidebar = () => {
+    const { isSidebarOpen, setIsSidebarOpen, user } = useContext(AppContext);
+
     return (
         <div>
             <aside
-                className={`bg-[#030a1c]  h-screen text-white w-[100%] md:w-1/4 p-4 space-y-6 transform md:translate-x-0 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-                    } transition-transform duration-300 ease-in-out fixed h-full`}
+                className="bg-[#030a1c]   h-screen text-white  p-4 space-y-6"
             >
                 {/* Close button */}
                 <div className='flex justify-end'>
@@ -45,23 +48,25 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                     </div>
 
                 </div>
+
+
                 <nav className="space-y-4">
 
-                <Link href="#" className="flex items-center text-gray-300 hover:text-white" onClick={() => {
+                    <Link to="/home" className="flex items-center text-gray-300 hover:text-white" onClick={() => {
                         setIsSidebarOpen(false)
                     }}>
                         <RxDashboard className="mr-2 text-blue-800" />
                         Home
                     </Link>
 
-                    <Link href="#" className="flex items-center text-gray-300 hover:text-white" onClick={() => {
+                    <Link to="/budget" className="flex items-center text-gray-300 hover:text-white" onClick={() => {
                         setIsSidebarOpen(false)
                     }}>
                         <RxDashboard className="mr-2 text-blue-800" />
                         Budget
                     </Link>
 
-                    <Link href="#" className="flex items-center text-gray-300 hover:text-white" onClick={() => {
+                    <Link to="/statistics" className="flex items-center text-gray-300 hover:text-white" onClick={() => {
                         setIsSidebarOpen(false)
                     }}>
                         <RxDashboard className="mr-2 text-blue-800" />
@@ -117,7 +122,8 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                     </Link>
 
                 </nav>
-            </aside></div>
+            </aside>
+        </div>
     )
 }
 

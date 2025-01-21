@@ -1,6 +1,6 @@
 import Hero from '@/ui_components/Hero'
 import NavBar from '@/ui_components/NavBar'
-const Home = () => {
+const LandingPage = () => {
     return (
         <div>
             <NavBar />
@@ -9,4 +9,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default LandingPage

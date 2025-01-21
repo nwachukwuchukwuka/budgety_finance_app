@@ -2,12 +2,20 @@ import { IoMenuSharp } from "react-icons/io5";
 import { MdOutlineLightMode } from "react-icons/md";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { FaRegUser } from "react-icons/fa";
+import { useContext } from "react";
+import AppContext from "@/services/AppContext";
 
-const Header = ({ setIsSidebarOpen }) => {
+
+const Header = () => {
+    const { isSidebarOpen, setIsSidebarOpen } = useContext(AppContext);
+
+    console.log("isSidebarOpen in Header:", isSidebarOpen);
+
+
     return (
         <div>
-            {/* <header className="mb-4 flex items-center justify-between bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white py-4 px-6 rounded-md shadow-lg"> */}
-            <header className="mb-4 flex items-center justify-between py-4 md:px-6 rounded-md shadow-none md:shadow-lg">
+           
+            <header className="mb-4 flex items-center justify-between py-4 md:px-6 rounded-md shadow-none md:shadow-sm">
                 {/* Open Menu Button */}
                 <button
                     className="md:hidden p-2 bg-blue-700 hover:bg-blue-800 text-white rounded transition duration-300"
@@ -25,13 +33,10 @@ const Header = ({ setIsSidebarOpen }) => {
                 <div>
 
                 </div>
-                {/* Search Bar */}
-                {/* <div className="flex-1 mx-4">
-                    <SearchBar />
-                </div> */}
+           
 
                 {/* Icons Section */}
-                 <div className="flex items-center space-x-4 p-2 bg-gradient-to-r from-blue-800 to-blue-700 rounded-md shadow-md"> 
+                <div className="flex items-center space-x-4 p-2 bg-gradient-to-r from-blue-800 to-blue-700 rounded-md shadow-md">
                     <MdOutlineLightMode
                         size={23}
                         className="text-gray-300 hover:text-yellow-400 transition duration-300 cursor-pointer"
@@ -44,8 +49,9 @@ const Header = ({ setIsSidebarOpen }) => {
                         size={20}
                         className="text-gray-300 hover:text-green-400 transition duration-300 cursor-pointer"
                     />
-                </div> 
+                </div>
             </header>
+            
         </div>
     )
 }
