@@ -1,4 +1,6 @@
 import { BsPiggyBank } from "react-icons/bs";
+import AddAccount from "./ui_components/AddAccount";
+import ModalPractice from "./ui_components/ModalPractice";
 
 // export const ITEMS = [
 //     {
@@ -22,14 +24,19 @@ import { BsPiggyBank } from "react-icons/bs";
 export const ITEMS = [
     {
         title: 'Step 1',
-        content: 'ADD BUDGET',
+        content: <ModalPractice />,
         text: "Create a single or multi category budget"
     },
     {
-        title: 'Step 1',
-        content: 'ADD BUDGET',
+        title: 'Step 2',
+        content: <AddAccount />,
         text: "Create a single or multi category budget"
     },
+    // {
+    //     title: 'Step 4',
+    //     content: <AddAccount />,
+    //     text: "Create a single or multi category budget"
+    // },
 
 
 

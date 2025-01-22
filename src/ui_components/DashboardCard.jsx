@@ -3,13 +3,17 @@ import { useState } from "react";
 import { ITEMS } from "@/constants";
 import ViewSummaryModal from "./ViewSummaryModal";
 import AddBudgetModal from "./AddBudgetModal";
-
+import AddAccount from "./AddAccount";
+import ModalPractice from "./modalPractice";
 
 
 const DashboardCard = () => {
   const [showAddBudget, setShowAddBudget] = useState(false);
   const [viewSummary, setViewSummary] = useState(false)
   const [viewSummaryData, setViewSummaryData] = useState({});
+
+  const [activeModal, setActiveModal] = useState(null); // Tracks which modal is active
+
 
 
 
@@ -32,28 +36,48 @@ const DashboardCard = () => {
                 {item.title}
               </h3>
               <p className="text-gray-500 text-sm mb-4">
-                Easily track and manage your {item.title.toLowerCase()}.
+                Easily track and manage your {item.text.toLowerCase()}.
               </p>
               <button
-                className="w-full sm:w-auto px-6 py-2 bg-blue-500 text-white rounded-full font-semibold text-sm shadow-md hover:bg-blue-600 transition-colors duration-300"
-                onClick={() => setShowAddBudget(true)}
+                className=""
+
               >
-                ADD BUDGET
+                {item.content}
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Budget Modal */}
-      {showAddBudget && !viewSummary && (
-        <AddBudgetModal setViewSummary={setViewSummary} setShowAddBudget={setShowAddBudget} setViewSummaryData={setViewSummaryData} />
+
+
+
+
+
+
+
+      {/* modals */}
+
+
+
+      {/* {activeModal === "addBudget" && (
+        <AddBudgetModal
+          setViewSummary={(state) => setActiveModal(state ? "viewSummary" : null)}
+          setShowAddBudget={() => setActiveModal(null)}
+          setViewSummaryData={setViewSummaryData}
+        />
       )}
 
-      {/* view summary modal */}
-      {viewSummary && (
-        <ViewSummaryModal setViewSummary={setViewSummary} setShowAddBudget={setShowAddBudget} viewSummary={viewSummary} viewSummaryData={viewSummaryData} />
+      {activeModal === "viewSummary" && (
+        <ViewSummaryModal
+          setViewSummary={() => setActiveModal(null)}
+          viewSummaryData={viewSummaryData}
+          setShowAddBudget={setShowAddBudget}
+        />
       )}
+      {activeModal === "addAccount" && <AddAccount />} */}
+
+
 
 
 
@@ -62,3 +86,4 @@ const DashboardCard = () => {
 };
 
 export default DashboardCard;
+

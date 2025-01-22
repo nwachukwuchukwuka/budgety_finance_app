@@ -14,7 +14,7 @@ const InfoPopOver = () => {
             <Popover>
                 <PopoverTrigger>
                     <IoIosInformationCircleOutline
-                        className=" rounded-full bg-blue-500 text-white cursor-pointer shadow-md hover:bg-blue-600 transition duration-300"
+                        className=" rounded-full bg-gray-500 text-white cursor-pointer shadow-md hover:bg-blue-600 transition duration-300"
                         size={28}
                     />
                 </PopoverTrigger>
