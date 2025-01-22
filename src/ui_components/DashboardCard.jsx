@@ -1,10 +1,6 @@
 import { useState } from "react";
 
 import { ITEMS } from "@/constants";
-import ViewSummaryModal from "./ViewSummaryModal";
-import AddBudgetModal from "./AddBudgetModal";
-import AddAccount from "./AddAccount";
-import ModalPractice from "./modalPractice";
 
 
 const DashboardCard = () => {
@@ -60,22 +56,6 @@ const DashboardCard = () => {
 
 
 
-      {/* {activeModal === "addBudget" && (
-        <AddBudgetModal
-          setViewSummary={(state) => setActiveModal(state ? "viewSummary" : null)}
-          setShowAddBudget={() => setActiveModal(null)}
-          setViewSummaryData={setViewSummaryData}
-        />
-      )}
-
-      {activeModal === "viewSummary" && (
-        <ViewSummaryModal
-          setViewSummary={() => setActiveModal(null)}
-          viewSummaryData={viewSummaryData}
-          setShowAddBudget={setShowAddBudget}
-        />
-      )}
-      {activeModal === "addAccount" && <AddAccount />} */}
 
 
 
