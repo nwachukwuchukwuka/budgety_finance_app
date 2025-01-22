@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddBudget = () => {
+const BudgetCategories = () => {
     const [showDropdown, setShowDropdown] = useState(false); // Main dropdown visibility
     const [activeCategory, setActiveCategory] = useState(null); // Track the active category
     const [selectedItems, setSelectedItems] = useState({}); // Track selected items
@@ -30,10 +30,12 @@ const AddBudget = () => {
             [item]: !prev[item],
         }));
     };
-
     return (
-        <div className="relative w-full max-w-md mx-auto mt-6">
+        <div className="relative w-full mt-6">
             {/* Main Dropdown */}
+            <label className="block text-gray-700 font-medium mb-1">
+                  Category
+                </label>
             <div
                 className="bg-white text-gray-700 px-4 py-3 rounded-lg shadow-md cursor-pointer flex justify-between items-center border border-gray-300"
                 onClick={toggleDropdown}
@@ -84,7 +86,7 @@ const AddBudget = () => {
                 </div>
             )}
         </div>
-    );
-};
+    )
+}
 
-export default AddBudget;
+export default BudgetCategories

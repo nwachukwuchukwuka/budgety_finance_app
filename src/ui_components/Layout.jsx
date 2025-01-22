@@ -94,13 +94,6 @@ const Layout = ({ children }) => {
 
 
 
-            {/* <div
-                className={`absolute md:fixed top-0 left-0 h-full bg-gray-800 text-white w-[100%] md:w-1/4 transform transition-transform duration-300 ease-in-out ${
-                    isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-                }`}
-            >
-                <Sidebar />
-            </div> */}
 
             {/* Main Content */}
             <main className="ml-0 md:ml-80 p-4 flex-1">
