@@ -7,6 +7,9 @@ import { IoMdClose } from "react-icons/io";
 import { TbMoneybag } from "react-icons/tb";
 import logo from '../assets/logo.jpg'
 import { IoMenuSharp } from "react-icons/io5";
+import { TfiPieChart } from "react-icons/tfi";
+import { TfiWallet } from "react-icons/tfi";
+
 
 
 
@@ -64,9 +67,10 @@ const Layout = ({ children }) => {
                 {/* Navigation Links */}
                 <nav className="space-y-4">
                     {[
-                        { to: "/home", label: "Home" },
-                        { to: "/budget", label: "Budget" },
-                        { to: "/budget", label: "Edit Profile" },
+                        { to: "/home", label: "Home", icon: <RxDashboard /> },
+
+                        { to: "/budget", label: "Budget", icon: <TfiWallet /> },
+                        { to: "/budget", label: "Edit Profile", icon: <TfiPieChart /> },
                         { to: "/budget", label: "Change Password" },
                         { to: "/budget", label: "FAQs" },
                         { to: "/budget", label: "Chat with support" },
@@ -80,10 +84,11 @@ const Layout = ({ children }) => {
                             className="flex items-center text-gray-900 hover:text-[#1f2937] transition-colors duration-200"
                             onClick={() => setIsSidebarOpen(false)}
                         >
-                            <RxDashboard
-                                className={`mr-2 text-gray-400 md:block ${isSidebarOpen ? "block" : "hidden"
-                                    }`}
-                            />
+                            <div className={`mr-2 text-gray-400 md:block ${isSidebarOpen ? "block" : "hidden"
+                                }`}>
+                                {link.icon}
+                            </div>
+
                             <span className={`md:block ${isSidebarOpen ? "block" : "hidden"}`}>
                                 {link.label}
                             </span>

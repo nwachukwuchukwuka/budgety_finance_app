@@ -8,7 +8,6 @@ import AppContext from "@/services/AppContext";
 const Header = () => {
   const { isSidebarOpen, setIsSidebarOpen } = useContext(AppContext);
 
-  console.log("isSidebarOpen in Header:", isSidebarOpen);
 
   return (
     <div>

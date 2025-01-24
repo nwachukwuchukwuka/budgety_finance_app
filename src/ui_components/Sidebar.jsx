@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { RxDashboard } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import { TbMoneybag } from "react-icons/tb";
+import { HiOutlineChartPie } from "react-icons/hi";
+
 import logo from "../assets/logo.jpg";
 import React, { useContext } from "react";
 import AppContext from "@/services/AppContext";
@@ -53,8 +55,8 @@ const Sidebar = () => {
         {/* Navigation Links */}
         <nav className="space-y-4">
           {[
-            { to: "/home", label: "Home" },
-            { to: "/budget", label: "Budget" },
+            { to: "/home", label: "Home", icon: <RxDashboard /> },
+            { to: "/budget", label: "Budget", icon: <HiOutlineChartPie /> },
             { to: "/statistics", label: "Statistics" },
             { to: "#", label: "Edit Profile" },
             { to: "#", label: "Change Password" },
@@ -70,7 +72,9 @@ const Sidebar = () => {
               className="flex items-center text-gray-600 hover:text-gray-900 transition-colors duration-200"
               onClick={() => setIsSidebarOpen(false)}
             >
-              <RxDashboard className="mr-2 text-blue-600" />
+              <div className="mr-2">
+                {link.icon}
+              </div>
               {link.label}
             </Link>
           ))}

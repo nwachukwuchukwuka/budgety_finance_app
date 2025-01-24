@@ -7,11 +7,14 @@ import Statistics from './pages/Statistics'
 import LandingPage from './pages/LandingPage'
 import Layout from './ui_components/Layout'
 import Practice from './ui_components/Practice'
+import { Toaster } from "@/components/ui/toaster"
+
 
 
 const App = () => {
   return (
     // <div>
+    // <Toaster />
     //   <Practice />
     // </div>
     <div>
@@ -41,7 +44,7 @@ const App = () => {
 
         </Routes>
       </BrowserRouter>
-
+      <Toaster />
     </div>
 
   )

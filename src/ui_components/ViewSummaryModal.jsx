@@ -1,18 +1,41 @@
+"use client";
+import AppContext from "@/services/AppContext";
+import React, { useContext } from "react";
 
-const ViewSummaryModal = ({ setShowAddBudget, viewSummaryData, setSyncBank, setShowFirstModal, showFirstModal }) => {
+const ViewSummaryModal = ({
+  viewSummaryData,
+  setViewSummaryData,
+  setName,
+  setLimit,
+  setFrequency,
+  setNotification,
+  setCurrency,
+  setSelectedItems }) => {
+  const { addToSummaryArray, setShowModal } = useContext(AppContext)
 
 
-  const viewSummaryHandle = () => {
-    setSyncBank(false)
-    setShowFirstModal(false)
+
+
+  const handleAdd = () => {
+    addToSummaryArray(viewSummaryData)
     setViewSummaryData({});
+    setName("")
+    setLimit("")
+    setFrequency("")
+    setNotification(100)
+    setCurrency("")
+    setSelectedItems({})
+
+    setShowModal(false); // Close the modal
   };
 
 
-  return (
-    <div>
 
-      {showFirstModal && (
+  return (
+
+    <div>
+      <div className="h-[420px] md:w-[460px] overflow-y-scroll  scrollbar-hidden">
+
         <div className=" w-full max-w-lg  rounded-lg">
           {/* Progress Bar */}
           <div className="w-full max-w-xs mx-auto mb-4">
@@ -55,9 +78,9 @@ const ViewSummaryModal = ({ setShowAddBudget, viewSummaryData, setSyncBank, setS
 
               <div className="flex-1 space-y-2">
                 <h3 className="text-lg font-semibold text-gray-800">Frequency</h3>
-                <p className="text-gray-700">Weekly</p>
+                <p className="text-gray-700">{viewSummaryData.frequency}</p>
                 <h3 className="text-lg font-semibold text-gray-800">Notify at</h3>
-                <p className="text-gray-700">70%</p>
+                <p className="text-gray-700">{viewSummaryData.notification}</p>
               </div>
             </div>
           </div>
@@ -65,14 +88,15 @@ const ViewSummaryModal = ({ setShowAddBudget, viewSummaryData, setSyncBank, setS
           {/* Close Button */}
           <div className="flex justify-end mt-8">
             <button
-              onClick={viewSummaryHandle}
+              onClick={handleAdd}
               className="px-6 py-3 bg-blue-500 text-white text-lg rounded-lg hover:bg-blue-600 transition-colors"
             >
               Add Budget
             </button>
           </div>
         </div>
-      )}
+
+      </div>
 
     </div>
   );
