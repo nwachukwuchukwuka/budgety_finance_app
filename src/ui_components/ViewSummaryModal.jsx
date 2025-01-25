@@ -14,7 +14,7 @@ const ViewSummaryModal = ({
   const { addToSummaryArray, setShowModal } = useContext(AppContext)
 
 
-
+  console.log(viewSummaryData)
 
   const handleAdd = () => {
     addToSummaryArray(viewSummaryData)
@@ -70,9 +70,10 @@ const ViewSummaryModal = ({
             <div className="flex justify-between items-start">
               <div className="flex-1 space-y-2">
                 <h3 className="text-lg font-semibold text-gray-800">Budget Categories</h3>
-                {viewSummaryData.categories.map((category) => (
+                {viewSummaryData.categories?.map((category) => (
                   <p className="text-gray-700">{category}</p>
                 ))}
+
 
               </div>
 

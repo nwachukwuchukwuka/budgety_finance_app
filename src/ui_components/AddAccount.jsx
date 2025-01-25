@@ -10,7 +10,7 @@ const AddAccount = () => {
 
   return (
     <div>
-      <Dialog className="">
+      <Dialog>
         <DialogTrigger>
         <div className="rounded-lg shadow-md border p-3  pb-6 mt-6 ">
                 <p className="flex justify-end text-sm text-gray-400"> 2 of 5</p>

@@ -1,17 +1,14 @@
-import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
-
-import { IoIosArrowRoundBack } from "react-icons/io";
-import { useEffect, useState } from "react";
-
-import ViewSummaryModal from "./ViewSummaryModal";
-
-import AppContext from "@/services/AppContext";
-import React, { useContext } from "react";
+import React, { useState } from 'react'
+import { IoIosArrowRoundBack } from 'react-icons/io'
 
 
-const ModalPractice = () => {
 
-    const { showFormModal, setShowFormModal, showModal, setShowModal } = useContext(AppContext)
+
+
+const AddTransaction = () => {
+    const [isFirstModalOpen, setIsFirstModalOpen] = useState(false)
+    const [isSecondModalOpen, setIsSecondModalOpen] = useState(false)
+
 
 
 
@@ -64,99 +61,89 @@ const ModalPractice = () => {
         }));
     };
 
-    //categories end
 
-
-    const handleSubmit = () => {
-
-        if (!validateInputs()) return;
-
-
-        const selectedCategories = Object.keys(selectedItems).filter(key => selectedItems[key]);
-        const data = {
-            name,
-            limit,
-            frequency,
-            notification,
-            currency,
-            categories: selectedCategories,
-        };
-        setViewSummaryData(data)
-        setShowFormModal(false);
-
-
-
-    };
-
-    const addToSummaryArray = (summary) => {
-        setSummaryArray((prev) => [...prev, summary]);
-    }
-
-
-
-    const handleOpenModal = () => {
-        setShowModal(true); // Open the modal
-        setShowFormModal(true); // Start with the form modal
-    };
-
-
-    if (!showModal) {
-        return (
-
-            <div className="rounded-lg shadow-md border p-3  pb-6 mt-6 ">
-                <p className="flex justify-end text-sm text-gray-400"> 1 of 5</p>
+    return (
+        <div>
+            <div className="rounded-lg shadow-md border p-3 pb-6 mt-6 ">
+                <p className="flex justify-end text-sm text-gray-400"> 3 of 5</p>
                 <div className="pt-4 ">
                     <div>
 
                         <button
-                            onClick={handleOpenModal}
+                            onClick={() => { setIsFirstModalOpen(true) }}
                             className="px-6 py-2 my-2 bg-blue-500 text-white text-sm font-semibold rounded-full shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
                         >
-                            ADD BUDGET
+                            ADD TRANSACTION
                         </button>
 
-                        <h1 className=" text-sm text-gray-600">
-                            Create a single or multi-category budget
-                        </h1>
+                        <p className="text-gray-600 mb-4 text-sm">
+                            Whether you have synced your bank account or not, you can manually
+                            add transactions if you want.
+                        </p>
                     </div>
                 </div>
             </div>
 
 
 
-        );
-    }
+            {/* first modal */}
+
+            {isFirstModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50">
+                    <div className="bg-white rounded-lg p-6 w-full max-w-md">
+                       
+
+                        <p className="text-gray-600 mb-4 text-center">
+                            What do you want to add?
+                        </p>
+
+                        <div className="space-y-4">
+                            <button
+
+                                className="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                                onClick={() => {
+                                    setIsFirstModalOpen(false)
+                                    setIsSecondModalOpen(true)
+                                }}
+                            >
+                                Inflow
+                            </button>
+                            <button className="w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                                Expense
+                            </button>
+                            <button className="w-full px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors">
+                                Savings
+                            </button>
+                        </div>
 
 
-
-
-
-    return (
-        <div>
-            <Dialog className="" open={showModal} onOpenChange={setShowModal}>
-
-                <DialogTrigger asChild >
-                    <div>
-
-                        <button className=" w-full sm:w-auto px-6 py-2 bg-blue-500 text-white rounded-full font-semibold text-sm shadow-md hover:bg-blue-600 transition-colors duration-300">
-                            ADD BUDGET
-                        </button>
                     </div>
-                </DialogTrigger>
-                <DialogContent
-                    className="p-6 w-[360px] md:w-[550px] bg-gray-50 rounded-xl shadow-lg "
-                // onCloseAutoFocus={() => setViewSummaryData({})}
-                >
+                </div>
+            )}
 
-                    {showFormModal ? (
 
-                        <div className="h-[420px] md:w-[460px] overflow-y-scroll  scrollbar-hidden">
+            {/* second modal */}
+
+            {isSecondModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50">
+                    <div className="bg-white rounded-lg p-6 w-full max-w-md">
+                        <button
+                            className="mt-2 text-black px-6 py- rounded-lg hover:bg-gray-200 mb-2 transition-colors duration-200"
+                            onClick={() => {
+                                setIsFirstModalOpen(true)
+                                setIsSecondModalOpen(false)
+                            }}
+                        >
+                            <IoIosArrowRoundBack size={24} />
+                        </button>
+
+                        <div className="h-[420px]  overflow-y-scroll  scrollbar-hidden">
 
 
                             {/* First Option */}
 
                             <div className="">
-                                <div className="bg-gray-50 w-full max-w-lg p-6 rounded-lg shadow-lg relative">
+                                <div className=" rounded-lg shadow-lg ">
 
                                     {/* progressbar */}
                                     <div className="w-[90%] md:w-full max-w-xs mx-auto">
@@ -301,7 +288,7 @@ const ModalPractice = () => {
                                     {/* Submit Button */}
                                     <div className="flex justify-end gap-4">
                                         <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-                                            onClick={handleSubmit}
+                                            onClick={() => { }}
                                         >
                                             View Summary
                                         </button>
@@ -309,41 +296,17 @@ const ModalPractice = () => {
                                 </div>
                             </div>
 
-                        </div>
+                        </div>F
 
-
-                    ) : (
-                        <div>
-                            <button
-                                className="mt-4 text-black px-6 py-2 rounded-lg hover:bg-gray-200 mb-2 transition-colors duration-200"
-                                onClick={() => setShowFormModal(true)}
-                            >
-                                <IoIosArrowRoundBack size={24} />
-                            </button>
-
-                            <ViewSummaryModal viewSummaryData={viewSummaryData} setViewSummaryData={setViewSummaryData}
-                                addToSummaryArray={addToSummaryArray} setName={setName} setLimit={setLimit} setFrequency={setFrequency} setNotification={setNotification} setCurrency={setCurrency}
-                                setSelectedItems={setSelectedItems}
-                            />
+                    </div>
+                </div>
+            )}
 
 
 
-                        </div>
-                    )}
 
-
-                    <DialogClose
-                        onClick={() => setSyncBank(false)} // Reset `syncBank` when "X" is clicked
-                    >
-                        <span className="sr-only">Close</span>
-                    </DialogClose>
-                </DialogContent>
-
-
-            </Dialog>
         </div>
     )
 }
 
-export default ModalPractice
-
+export default AddTransaction
