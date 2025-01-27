@@ -9,17 +9,17 @@ const AddAccount = () => {
   const [syncBank, setSyncBank] = useState(false);
 
   return (
-    <div>
+    <div className="">
       <Dialog>
         <DialogTrigger>
-        <div className="rounded-lg shadow-md border p-3  pb-6 mt-6 ">
+        <div className="rounded-lg shadow-sm border p-3  pb-6 mt-6 w-[320px] md:w-[280px] h-[180px]">
                 <p className="flex justify-end text-sm text-gray-400"> 2 of 5</p>
                 <div className="pt-4 ">
                     <div>
 
                         <button
                           
-                            className="px-6 py-2 my-2 bg-blue-500 text-white text-sm font-semibold rounded-full shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="px-6 py-2 my-2 bg-blue-500 text-white text-sm font-semibold rounded-full shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-start"
                         >
                             ADD ACCOUNT
                         </button>
@@ -30,9 +30,6 @@ const AddAccount = () => {
                     </div>
                 </div>
             </div>
-          {/* <button className="w-full sm:w-auto px-6 py-2 bg-blue-500 text-white rounded-full font-semibold text-sm shadow-md hover:bg-blue-600 transition-colors duration-300 ">
-            ADD ACCOUNT
-          </button> */}
         </DialogTrigger>
         <DialogContent
           className="p-6  w-[360px] md:w-[500px] bg-white rounded-xl shadow-lg"

@@ -8,9 +8,9 @@ const NavBar = () => {
             <h1 className='text-[25px] text-blue-600'>EKash</h1>
             <div>
                 <Link to='/dashboard'>
-                    <Button className="bg-white text-black mr-2">Dashboard</Button>
+                    <Button className="bg-white text-black mr-2 hover:bg-gray-100">Dashboard</Button>
                 </Link>
-                <Button className="bg-blue-600">Get started</Button>
+                <Button className="bg-blue-600 hover:bg-blue-700">Get started</Button>
             </div>
         </div>
     )

@@ -103,7 +103,7 @@ const ModalPractice = () => {
     if (!showModal) {
         return (
 
-            <div className="rounded-lg shadow-md border p-3  pb-6 mt-6 ">
+            <div className="rounded-lg shadow-sm border p-3  pb-6 mt-6 w-[320px] md:w-[280px] h-[180px]">
                 <p className="flex justify-end text-sm text-gray-400"> 1 of 5</p>
                 <div className="pt-4 ">
                     <div>
@@ -145,7 +145,6 @@ const ModalPractice = () => {
                 </DialogTrigger>
                 <DialogContent
                     className="p-6 w-[360px] md:w-[550px] bg-gray-50 rounded-xl shadow-lg "
-                // onCloseAutoFocus={() => setViewSummaryData({})}
                 >
 
                     {showFormModal ? (
